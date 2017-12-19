@@ -1,0 +1,36 @@
+<%= render 'shared/navbar' %>
+<div class='container'>
+<div class='col-6'>
+<h1>Update Profile</h1>
+<form action='<%= update_user_path @user.id %>' method='post'>
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group">
+        <input type="text" class="form-control" id="first_name" name='user[first_name]' value="<%= @user.first_name %>" placeholder='First Name'>
+        <%= render 'shared/errors', type: 'first_name'%>
+    </div>  
+    <div class="form-group">
+        <input type="text" class="form-control" id="last_name" name='user[last_name]' value='<%= @user.last_name %>' placeholder="Last Name">
+        <%= render 'shared/errors', type: 'last_name'%>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" id="register_email" name='user[email]' value='<%= @user.email %>' placeholder="Email">
+        <%= render 'shared/errors', type: 'email'%>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id="location" name='user[location]' value='<%= @user.location %>' placeholder="Location">
+        <%= render 'shared/errors', type: 'location'%>                    
+    </div>
+    <div class="form-group">
+        <select class="form-control" id="state" name='user[state]'>
+            <option value="<%= @user.state %>%" disabled selected><%= @user.state %></option>
+            <% @states.each do |s| %>
+                <option value='<%= s %>'><%= s %></option>
+            <% end %>
+        </select>
+        <%= render 'shared/errors', type: 'state'%>                    
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</div>
+</div>

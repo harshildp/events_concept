@@ -1,0 +1,72 @@
+<%= render 'shared/navbar' %>
+<div class='container'>
+<div class='row'>
+<div id='eventInfo' class='col-6'>
+<h1 id='showTitle'><%= @event.name %></h1>
+<% if @event.user == @user %>
+    <a href='<%= edit_event_path @event.id %>' role='button' class='btn btn-secondary btn-sm eventbutton'><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+    <a href='<%= delete_event_path @event.id %>' class='btn btn-danger btn-sm eventbutton' data-confirm="Are you sure you want to delete this event?" data-method='delete'><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+<% else %>
+    <% unless @event.users.include? @user %>
+        <a href='<%= join_path @event.id %>' role='button' class='btn btn-primary btn-sm eventbutton'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Join</a>
+    <% else %>
+        <a href='<%= unjoin_path @event.id %>' class='btn btn-warning btn-sm eventbutton' data-method="delete"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Leave</a>
+    <% end %>
+<% end %> 
+    <p><b>Host: </b><%= @event.user.first_name %> <%= @event.user.last_name %></p>
+    <p><b>Date: </b><%= @event.date.strftime("%a %b #{@event.date.day.ordinalize}, %Y") %></p>
+    <p><b>Begins: </b><%= @event.time.strftime("%l:%M %p") %></p>
+    <p><b>Location: </b><%= @event.location %>, <%= @event.state %></p>
+    <p><b><i class="fa fa-users" aria-hidden="true"></i> Attending: </b><%= @event.users.count %></p>
+    <p><b>About the event: </b><i><%= @event.desc %></i></p>
+    <% if @event.users.count > 0 %>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @event.users.each do |u| %>
+                <tr>
+                <td><%= u.first_name %> <%= u.last_name %></td>
+                <td><%= u.location %></td>
+                <td><%= u.state %></td>
+                </tr>
+            <% end %>
+        </tbody>
+        <% if @event.users.length > 4 %>
+        <tfoot>
+            <tr>
+            <th colspan="3">
+                ...<br />
+                <button class="expander btn btn-info btn-sm">Show more</button></th>
+            </tr>
+        </tfoot>
+        <% end %>
+    </table>
+    <% end %>
+    </div>
+    <div id='discuss' class='col-6'>
+        <div id='board'>
+            <% @comments.reverse.each do |c| %>
+                <div class='comment'>
+                    <p><b><%= c.user.first_name %></b> says <%= c.content %></p>
+                    <small class='text-muted'><i class="fa fa-paper-plane-o" aria-hidden="true"></i> <%= time_ago_in_words(c.created_at) %> ago</small>
+                </div>
+            <% end %>
+        </div>
+        <form class='col-12' action='<%= create_comment_path @event.id %>' method='post'>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <div class="form-group">
+                <textarea class="form-control" id="content" name='content' placeholder="Your comment here..."></textarea>
+                <%= render 'shared/errors', type: 'content'%>
+            </div>  
+            <button type="submit" class="btn btn-success">Post</button>
+        </form>
+    </div>
+    </div>
+</div>
+

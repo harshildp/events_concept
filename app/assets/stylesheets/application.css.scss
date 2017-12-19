@@ -1,0 +1,161 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ .error{
+     color:red;
+     margin: 0px;
+ }
+ div#newEvent{
+     margin-top:20px;
+ }
+
+ th, td{
+     text-align:center; 
+ }
+
+ .comment p{
+     margin:0px;
+ }
+
+ .comment{
+     margin-bottom:5px;
+ }
+
+ #board{
+     height:60vh;
+     overflow-y:auto;
+     padding:5px;
+     margin-bottom:10px;
+ }
+
+ #discuss{
+     margin-top:2em;
+     border-left:1px solid black;
+ }
+
+ .auto-c {
+    tbody>tr {
+      display:none;
+      &.expanded {
+        display:table-row;
+      }
+    }
+    &.expanded {
+      tbody>tr {
+        display:table-row;
+      }
+      tfoot {
+        display: none;
+      }    
+    }
+  }
+
+  .eventbutton{
+      width:5em;
+      margin-bottom:1em;
+  }
+ .container{
+      margin-top:2.5em;
+      padding-top:0.5em;
+  }
+
+  .notification{
+      color:darkred;
+      background-color:black;
+      border-radius:2px;
+      padding-left:0.25em;
+      padding-right:0.25em;
+      line-height:100%;
+  }
+
+  #invites{
+    height:80vh;
+    padding:5px;
+    overflow-y:auto
+}
+
+.invite{
+    margin-bottom: 1em;
+}
+
+#newEventImg{
+    width:80%;
+    display:block;
+    margin:auto;
+    margin-top:20px;
+}
+
+nav{
+    height:2.5em;
+}
+
+#signin{
+    min-height:100vh;
+    min-width:100vw;
+    background: url('signin3.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin:0px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+#signin .container{
+    margin-top:0px;
+    padding-top:0;
+}
+
+#login h1, #register h1{
+    color:white;
+}
+
+#login{
+    background-color:rgba(75, 12, 12, 0.7);
+    margin-top:10px;
+    border-radius:5px;
+    padding:10px;
+    height:100%;
+}
+#register{
+    background-color:rgba(75, 12, 12, 0.7);
+    margin-top:10px;
+    border-radius:5px;
+    padding:10px;
+    height:100%;
+}
+
+#signin .error{
+    color:white;
+    margin: 0px;
+}
+
+#signin .btn-primary{
+    background-color:rgb(70, 13, 13);
+    border:none;
+    box-shadow:none;    
+}
+
+#signin .btn-default{
+    background-color:rgba(70, 13, 13, 0.425);
+    border:none;
+    box-shadow:none;
+}
+
+.btn-toggle{
+    margin-bottom: 1em;
+}
