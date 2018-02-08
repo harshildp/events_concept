@@ -55,11 +55,15 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy if @event
-    redirect_to :back
+    if params[:page]
+      redirect_to events_path
+    else
+      redirect_to :back
+    end
   end
 
   private
     def event_params
-      params.require(:event).permit(:name, :location, :state, :date, :time, :desc, :private)
+      params.require(:event).permit(:name, :location, :state, :date, :time, :description, :private)
     end    
 end

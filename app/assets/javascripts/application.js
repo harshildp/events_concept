@@ -14,6 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.bundle.min
-//= require jquery.dynatable
-//= require_tree .
-//= require index

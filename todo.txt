@@ -1,5 +1,6 @@
 
 Add events archive
+On users page and all events page
 
 FIX TIME ZONES
 

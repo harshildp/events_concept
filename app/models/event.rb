@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validates :name, presence: true, length: {minimum: 4}
   validates :location, presence: true, length: {minimum: 3}
   validates :state, presence: true
-  validates :desc, presence: true, length: {in: 10..500}
+  validates :description, presence: true, length: {in: 10..500}
 
   validate :check_state
   validate :check_date

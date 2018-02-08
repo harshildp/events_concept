@@ -22,6 +22,9 @@
  }
  div#newEvent{
      margin-top:20px;
+    //  background-color:#353A40;
+    //  border-radius:5% 10%;
+    //  padding:2em;
  }
 
  th, td{
@@ -47,7 +50,6 @@
      margin-top:2em;
      border-left:1px solid black;
  }
-
  .auto-c {
     tbody>tr {
       display:none;
@@ -66,21 +68,30 @@
   }
 
   .eventbutton{
-      width:5em;
       margin-bottom:1em;
   }
  .container{
       margin-top:2.5em;
-      padding-top:0.5em;
+      min-height:100vh;
+      background-color:white;
+      padding:0.5em 2em 4em 2em;
+      border-bottom-left-radius: 5%;
+      border-bottom-right-radius: 5%;
   }
 
   .notification{
-      color:darkred;
-      background-color:black;
-      border-radius:2px;
-      padding-left:0.25em;
-      padding-right:0.25em;
-      line-height:100%;
+    background-color: #fa3e3e;
+    border-radius: 2px;
+    color: white;
+   
+    padding: 0.15em 0.3em;
+    font-size: 12px;
+    //   color:darkred;
+    //   background-color:black;
+    //   border-radius:2px;
+    //   padding-left:0.25em;
+    //   padding-right:0.25em;
+    //   line-height:100%;
   }
 
   #invites{
@@ -97,7 +108,7 @@
     width:80%;
     display:block;
     margin:auto;
-    margin-top:20px;
+    margin-top:2em;
 }
 
 nav{
@@ -118,6 +129,7 @@ nav{
 #signin .container{
     margin-top:0px;
     padding-top:0;
+    background-color: transparent;
 }
 
 #login h1, #register h1{
@@ -130,6 +142,7 @@ nav{
     border-radius:5px;
     padding:10px;
     height:100%;
+    box-shadow:1em 1em 0.5em black;
 }
 #register{
     background-color:rgba(75, 12, 12, 0.7);
@@ -137,6 +150,7 @@ nav{
     border-radius:5px;
     padding:10px;
     height:100%;
+    box-shadow:1em 1em 0.5em black;
 }
 
 #signin .error{
@@ -158,4 +172,29 @@ nav{
 
 .btn-toggle{
     margin-bottom: 1em;
+}
+
+body{
+    background-color:rgb(70, 13, 13);
+}
+
+thead{
+    background-color:steelblue;
+    color:white;
+}
+
+.attending thead{
+    background-color:rgb(57, 100, 57);
+}
+
+.hosting thead{
+    background-color:rgb(187, 81, 81);
+}
+
+.attendees thead{
+    background-color: rgb(141, 90, 177);
+}
+
+.outstate thead{
+    background-color: rgb(134, 81, 12);
 }

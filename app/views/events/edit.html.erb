@@ -32,8 +32,8 @@
             <%= render 'shared/errors', type: 'time'%>
         </div>
         <div class="form-group">
-            <textarea class="form-control" id="desc" name='event[desc]' placeholder='Event description...'><%= @event.desc %></textarea>
-            <%= render 'shared/errors', type: 'desc'%>
+            <textarea class="form-control" id="description" name='event[description]' placeholder='Event description...'><%= @event.description %></textarea>
+            <%= render 'shared/errors', type: 'description'%>
         </div>
         <button type="submit" class="btn btn-success">Update Event</button>
     </form>

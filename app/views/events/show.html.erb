@@ -5,7 +5,7 @@
 <h1 id='showTitle'><%= @event.name %></h1>
 <% if @event.user == @user %>
     <a href='<%= edit_event_path @event.id %>' role='button' class='btn btn-secondary btn-sm eventbutton'><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-    <a href='<%= delete_event_path @event.id %>' class='btn btn-danger btn-sm eventbutton' data-confirm="Are you sure you want to delete this event?" data-method='delete'><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+    <a href='<%= delete_event_path( @event.id, 1) %>' class='btn btn-danger btn-sm eventbutton' data-confirm="Are you sure you want to delete this event?" data-method='delete'><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
 <% else %>
     <% unless @event.users.include? @user %>
         <a href='<%= join_path @event.id %>' role='button' class='btn btn-primary btn-sm eventbutton'><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Join</a>
@@ -18,9 +18,9 @@
     <p><b>Begins: </b><%= @event.time.strftime("%l:%M %p") %></p>
     <p><b>Location: </b><%= @event.location %>, <%= @event.state %></p>
     <p><b><i class="fa fa-users" aria-hidden="true"></i> Attending: </b><%= @event.users.count %></p>
-    <p><b>About the event: </b><i><%= @event.desc %></i></p>
+    <p><b>About the event: </b><i><%= @event.description %></i></p>
     <% if @event.users.count > 0 %>
-    <table class="table table-striped">
+    <table class="table table-striped attendees">
         <thead>
             <tr>
                 <th>Name</th>

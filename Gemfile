@@ -26,7 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 gem 'hirb'
-gem 'rails-footnotes'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -40,6 +39,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'capybara'
   gem 'byebug'
+  gem 'rails-footnotes'
 end
 
 group :development do

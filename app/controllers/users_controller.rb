@@ -49,6 +49,9 @@ class UsersController < ApplicationController
     @attending = @attending.select{|e| e.date >= Date.current }
     @attending = @attending.reject{ |e| e.date == Date.current && Time.parse(e.time.strftime("%H:%M")) - Time.parse(Time.now.getlocal("-06:00").strftime("%H:%M")) < 0 }
     p 'ATTENDING', @attending
+    @attended = Event.includes(:user, :attendees).where('attendees.user_id = ? OR events.user_id = ?', @user.id, @user.id).order(:date).references(:user, :attendees)
+    @attended = @attended.select{|e| e.date < Date.current }
+    p 'attended', @attended
   end
 
   private

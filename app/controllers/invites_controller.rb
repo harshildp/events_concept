@@ -1,7 +1,9 @@
 class InvitesController < ApplicationController
   def create
     recipient = User.find_by(email:params[:recipient])
-    if recipient
+    event = Event.find(params[:id])
+    p 'USER', event.user
+    if recipient && recipient != event.user
       attend = Attendee.where(user_id:recipient.id, event_id:params[:id])
       unless attend.first
         invited = Invite.where(user_id:recipient.id, event_id:params[:id])

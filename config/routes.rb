@@ -15,10 +15,11 @@ Rails.application.routes.draw do
   post 'events' => 'events#create', as: 'create_event'
   get 'events/:id/edit' => 'events#edit', as: 'edit_event'
   put 'events/:id' => 'events#update', as: 'update_event'
-  delete 'events/:id' => 'events#destroy', as: 'delete_event'
+  delete 'events/:id/attendees' => 'attendees#destroy', as: 'unjoin'
+  
+  delete 'events/:id(/:page)' => 'events#destroy', as: 'delete_event'
   
   get 'attendees/:id' => 'attendees#create', as: 'join'
-  delete 'events/:id/attendees' => 'attendees#destroy', as: 'unjoin'
 
   post 'events/:id/comments' => 'comments#create', as: 'create_comment'
 
